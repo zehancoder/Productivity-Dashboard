@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="todo.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="max-w-[1800px] mx-auto px-3 py-6">
+      <nav class="nav bg-[#FAF3E1] rounded-lg">
+        <div
+          id="nav-childs"
+          class="flex item-center justify-between gap-2 px-6 py-4"
+        >
+          <h1
+            class="md:text-[23px] text-[20px] lg:text-[25px] font-monospace font-bold uppercase text-[#222222]"
+          >
+            Todo <span class="text-[#FF6D1F]">List</span>
+          </h1>
+          <button
+            id="change-theme"
+            class="px-3 md:px-4 font-medium py-2 md:text-[15px] text-[14px] lg:text-base md:py-2.5 bg-[#FF6D1F] rounded-lg cursor-pointer uppercase text-[#FAF3E1]"
+          >
+            Change Theme
+          </button>
+        </div>
+      </nav>
+      <div class="custom-shadow h-full mt-10 rounded-lg">
+        <div class="">
+          <div
+            class="bg-[#FF6D1F] w-full rounded-t-lg relative text-[#FAF3E1] py-5 px-5 flex items-center justify-between gap-3"
+          >
+            <div class="flex items-center gap-3">
+              <li
+                id="todoDate"
+                class="list-none text-[16px] md:text-[18px] font-medium alan cursor-pointer"
+              >
+                21st Feb, 2025
+              </li>
+              <i class="fa-solid fa-angle-right"></i>
+              <div
+                class="absolute md:text-[15px] hidden text-[15px] top-[105%] z-40 px-4 py-3 text-[#222222] bg-[#FAF3E1] rounded-b-lg"
+              >
+                <li
+                  class="list-none hover:bg-[#FF6D1F] px-3 md:px-5 py-1.5 md:py-2 hover:text-[#FAF3E1] transition duration-300 rounded-lg font-medium alan cursor-pointer"
+                >
+                  21st Feb, 2025
+                </li>
+                <li
+                  class="list-none hover:bg-[#FF6D1F] px-3 md:px-5 py-1.5 md:py-2 hover:text-[#FAF3E1] transition duration-300 rounded-lg font-medium alan cursor-pointer"
+                >
+                  21st Feb, 2025
+                </li>
+                <li
+                  class="list-none hover:bg-[#FF6D1F] px-3 md:px-5 py-1.5 md:py-2 hover:text-[#FAF3E1] transition duration-300 rounded-lg font-medium alan cursor-pointer"
+                >
+                  21st Feb, 2025
+                </li>
+              </div>
+            </div>
+            <div>
+              <div
+                class="border border-[#FAF3E1] mt-2 h-12 overflow-hidden rounded-lg flex items-center justify-between gap-2"
+              >
+                <input
+                  type="text"
+                  placeholder="Search Weather"
+                  class="text-base md:text-lg w-[90%] outline-none border-none font-normal px-2 md:px-3 text-[#FAF3E1] py-2.5 md:py-3"
+                />
+                <button
+                  class="px-3 md:px-4 font-medium py-3 md:text-[15px] text-[14px] lg:text-base md:py-2.5 bg-[#FAF3E1] h-full cursor-pointer uppercase text-[#FF6D1F] text-2xl"
+                >
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </div>
+            </div>
+            <button
+              class="px-3 md:px-4 font-medium py-2 md:text-[15px] text-[14px] lg:text-base md:py-2.5 bg-[#FAF3E1] rounded-lg cursor-pointer uppercase text-[#FF6D1F]"
+            >
+              <i class="fa-solid fa-plus"></i>
+              New Todo
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

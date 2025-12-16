@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="max-w-[1800px] mx-auto px-3 py-6">
+      <!-- navber -->
+      <nav class="nav bg-[#FAF3E1] rounded-lg">
+        <div
+          id="nav-childs"
+          class="flex item-center justify-between gap-2 px-6 py-4"
+        >
+          <h1
+            class="md:text-[23px] text-[20px] lg:text-[25px] font-monospace font-bold uppercase text-[#222222]"
+          >
+            Productivity <span class="text-[#FF6D1F]">Dashboard</span>
+          </h1>
+          <button
+            id="change-theme"
+            class="px-3 md:px-4 font-medium py-2 md:text-[15px] text-[14px] lg:text-base md:py-2.5 bg-[#FF6D1F] rounded-lg cursor-pointer uppercase text-[#FAF3E1]"
+          >
+            Change Theme
+          </button>
+        </div>
+      </nav>
+      <!-- weather and time section -->
+      <section
+        id="weather-section"
+        class="w-full mt-6 rounded-lg relative overflow-hidden text-light"
+      >
+        <img
+          src="./images/weather.avif"
+          id="time-section-bg-img"
+          class="absolute top-0 h-full object-cover w-full -z-30 brightness-75"
+          alt=""
+        />
+
+        <div
+          class="w-full flex lg:flex-row flex-col justify-between px-4 md:px-5 py-4 md:py-6 z-40 font-mono"
+        >
+          <div id="left-item">
+            <div id="date-parent">
+              <h1
+                id="date"
+                class="md:text-3xl text-2xl lg:text-4xl font-medium text-[#FAF3E1]"
+              >
+                16 January, 2025
+              </h1>
+            </div>
+            <div id="time-parent" class="md:mt-5 mt-4 lg:mt-6">
+              <h1
+                id="time"
+                class="md:text-5xl text-4xl lg:text-6xl xl:text-7xl font-extrabold text-[#FAF3E1] md:flex-row flex-col  flex md:items-center gap-3"
+              >
+                
+              </h1>
+            </div>
+            <div id="country-parent">
+              <h1
+                id="country"
+                class="md:text-3xl text-2xl xl:text-4xl font-medium text-[#FAF3E1] md:mt-8 mt-6 lg:mt-20"
+              >
+                Bangladesh (BD)
+              </h1>
+            </div>
+          </div>
+          <div id="right-item" class="z-40 lg:mt-0 mt-6">
+            <h1
+              class="text-7xl md:text-8xl lg:text-[110px] leading-[100px] alan text-[#FF6D1F] font-medium"
+              id="temp"
+            >
+              20<sup>o</sup>
+            </h1>
+            <h2
+              id="weather-track"
+              class="md:text-3xl text-2xl lg:text-4xl font-mono font-medium text-[#FAF3E1]"
+            >
+              Light rain
+            </h2>
+            <div
+              id="weather-details"
+              class="mt-7 text-2xl font-medium text-[#FAF3E1]"
+            >
+              <p class="" >
+                Precipitation: <span id="precipitation">29</span>%
+              </p>
+              <p class="" >
+                Humidity: <span id="humidity">32</span>%
+              </p>
+              <p class="" >
+                Wind: <span id="wind">10</span>km/h
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="search-weather"
+        class="custom-shadow mt-2 h-12 overflow-hidden rounded-lg flex items-center justify-between gap-2"
+      >
+        <input
+          id="weather-input"
+          type="text"
+          placeholder="Search Weather"
+          class="text-base md:text-lg w-[90%] outline-none border-none font-normal px-2 md:px-3 text-[#FAF3E1] py-2.5 md:py-3"
+        />
+        <button
+          id="weather-search"
+          class="px-3 md:px-4 font-medium py-3 md:text-[15px] text-[14px] lg:text-base md:py-2.5 bg-[#FF6D1F] h-full cursor-pointer uppercase text-[#FAF3E1] text-2xl"
+        >
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </section>
+      <!-- error message -->
+      <section id="message-box" class="px-4 py-3  font-medium z-50 md:text-xl transition duration-300 text-lg custom-shadow rounded-lg w-fit fixed bottom-10 " style="transform: translateX(-400px);"><p class="text-[#FAF3E1]" id="error-message">error</p></section>
+      <!-- product section -->
+      <section
+        id="productivity-section"
+        class="mt-12 grid md:grid-cols-3 lg:grid-cols-4 grid-cols-2 xl:grid-cols-5 gap-4 md:gap-6 lg:gap-8 2xl:gap-12 flex-wrap"
+      >
+        <a
+          href="./pages/todo/todo.html"
+          class="px-3 py-4 bg-[#222222] custom-shadow cursor-pointer rounded-lg overflow-hidden"
+        >
+          <div class="h-[70%] w-[80%] mx-auto">
+            <img src="./images/todo.png" class="w-full h-full" alt="" />
+          </div>
+
+          <div class="relative mt-4 md:mt-6" id="todo-parent">
+            <h1
+              class="md:text-xl text-lg lg:text-2xl font-medium text-[#FAF3E1]"
+            >
+              Todo List
+            </h1>
+          </div>
+        </a>
+        <a
+          href="./pages/dailyPlanner/dailyplanner.html"
+          class="px-3 py-4 bg-[#222222] custom-shadow cursor-pointer rounded-lg overflow-hidden"
+        >
+          <div class="h-[70%] w-[80%] mx-auto">
+            <img src="./images/planner.png" class="w-full h-full" alt="" />
+          </div>
+
+          <div class="relative mt-4 md:mt-6" id="todo-parent">
+            <h1
+              class="md:text-xl text-lg lg:text-2xl font-medium text-[#FAF3E1]"
+            >
+              Daily Planner
+            </h1>
+          </div>
+        </a>
+        <a
+          href="./pages/motivation/motivation.html"
+          class="px-3 py-4 bg-[#222222] custom-shadow cursor-pointer rounded-lg overflow-hidden"
+        >
+          <div class="h-[70%] w-[80%] mx-auto">
+            <img src="./images/motivation.png" class="w-full h-full" alt="" />
+          </div>
+
+          <div class="relative mt-4 md:mt-6" id="todo-parent">
+            <h1
+              class="md:text-xl text-lg lg:text-2xl font-medium text-[#FAF3E1]"
+            >
+              Motivation
+            </h1>
+          </div>
+        </a>
+        <a
+          href="./pages/promodoro/promodoro.html"
+          class="px-3 py-4 bg-[#222222] custom-shadow cursor-pointer rounded-lg overflow-hidden"
+        >
+          <div class="h-[70%] w-[80%] mx-auto">
+            <img src="./images/promo.png" class="w-full h-full" alt="" />
+          </div>
+
+          <div class="relative mt-4 md:mt-6" id="todo-parent">
+            <h1
+              class="md:text-xl text-lg lg:text-2xl font-medium text-[#FAF3E1]"
+            >
+              Promodoro Timer
+            </h1>
+          </div>
+        </a>
+        <a
+          href="./pages/goals/goals.html"
+          class="px-3 py-4 bg-[#222222] custom-shadow cursor-pointer rounded-lg overflow-hidden"
+        >
+          <div class="h-[70%] w-[80%] mx-auto">
+            <img src="./images/goal.png" class="w-full h-full" alt="" />
+          </div>
+
+          <div class="relative mt-4 md:mt-6" id="todo-parent">
+            <h1
+              class="md:text-xl text-lg lg:text-2xl font-medium text-[#FAF3E1]"
+            >
+              Goals
+            </h1>
+          </div>
+        </a>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
