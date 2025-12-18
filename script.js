@@ -10,6 +10,7 @@ const weatherInput = document.querySelector("#weather-input");
 const weatherSearch = document.querySelector("#weather-search");
 const messageBox = document.querySelector("#message-box");
 const message = document.querySelector("#error-message");
+
 // fetching weather
 const weather = () => {
   const weatherFetch = async (countryName) => {
@@ -108,8 +109,7 @@ const getTime = () => {
                       ":" +
                       String(second).padStart("2", "0") +
                       " AM"
-                    : String(day).padStart("2", "0") +
-                      ":" +
+                    :
                       String(hour).padStart("2", "0") +
                       ":" +
                       String(minute).padStart("2", "0") +
@@ -121,3 +121,5 @@ const getTime = () => {
 setInterval(() => {
   getTime();
 }, 1000);
+
+
