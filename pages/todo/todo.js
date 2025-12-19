@@ -79,13 +79,32 @@ const removeAllTodoFunc = () => {
   show_todos.innerHTML =
     show_todos.innerHTML = `<p class="text-center text-[#FAF3E1] text-lg alan w-full">No Todo Created</p>`;
 };
+// selection todos data func and filter them using dates
+const selectTodoDateFunc = (selecting_todo) => {
+  Aftertodos = todos.filter((todo) => {
+    if (todo.id === selecting_todo.id) {
+      todo_default_date.innerHTML = todo.todo_date_value;
+      return todo;
+    }
+  });
+  renderTodos(Aftertodos);
+};
+// move to all todo func
+const moveToAllTodoFunc = () => {
+  console.log(todos);
+
+  todo_default_date.innerHTML = "All Todo";
+  renderTodos(todos);
+};
 
 // render todos
-const renderTodos = (todos) => {
+const renderTodos = (AfterRendertodos) => {
   let totolTodos = "";
-
-  todos.length > 0
-    ? todos.map((todo, idx) => {
+  let totalDates = ` <li onclick='moveToAllTodoFunc()' class="list-none hover:bg-[#FF6D1F] px-3 md:px-5 py-1.5 md:py-2 hover:text-[#FAF3E1] transition duration-300 rounded-lg font-medium alan cursor-pointer">
+             All Todo
+            </li>`;
+  AfterRendertodos.length > 0
+    ? AfterRendertodos.map((todo, idx) => {
         totolTodos += ` <div id=${
           todo.id
         } class="px-4 text-[#FAF3E1] py-3 bg-[#5A7863] rounded-lg">
@@ -139,9 +158,22 @@ const renderTodos = (todos) => {
             <p>12:00 PM</p>
           </div>
         </div> `;
+
+        if (todos.length === 1) {
+          todo_default_date.innerHTML = AfterRendertodos[0].todo_date_value;
+        }
+        if (todos.length === 0) {
+          todo_default_date.innerHTML = "No Todos";
+        }
+        if (todos.length > 0) {
+          totalDates += ` <li onclick='selectTodoDateFunc(${todo.id})' class="list-none hover:bg-[#FF6D1F] px-3 md:px-5 py-1.5 md:py-2 hover:text-[#FAF3E1] transition duration-300 rounded-lg font-medium alan cursor-pointer">
+              ${todo.todo_date_value}
+            </li>`;
+        }
       })
     : (totolTodos = `<p class="text-center text-[#FAF3E1] text-lg alan w-full">No Todo Created</p>`);
   show_todos.innerHTML = totolTodos;
+  todo_dates.innerHTML = totalDates;
 };
 
 const addNewTodo = () => {
@@ -186,6 +218,7 @@ const addNewTodo = () => {
       todo_form_time.value = "";
       todo_description.value = "";
     }
+    todos.length > 0 ? (todo_default_date.innerHTML = "All Todos") : "";
   });
 };
 
@@ -271,19 +304,18 @@ cancle_todo.addEventListener("click", () => {
   overlay_div.style.display = "none";
 });
 
-
 // add searching functionality
-search_todo_btn.addEventListener('click', () => {
+search_todo_btn.addEventListener("click", () => {
   let searchResult = todos.filter((todo) => {
-    return todo.task_name_value.toLowerCase().startsWith(search_todo.value.toLowerCase())
-  })
-  search_todo.value !== "" && renderTodos(searchResult)
-  
-})
+    return todo.task_name_value
+      .toLowerCase()
+      .startsWith(search_todo.value.toLowerCase());
+  });
+  search_todo.value !== "" && renderTodos(searchResult);
+});
 
 search_todo.addEventListener("keydown", () => {
-  if(search_todo.value === ""){
-    renderTodos(todos)
+  if (search_todo.value === "") {
+    renderTodos(todos);
   }
-  
-})
+});
