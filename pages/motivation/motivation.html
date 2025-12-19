@@ -1,11 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Motivation</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quote Generator</title>
+    <link rel="stylesheet" href="quote.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="max-w-[1800px] mx-auto px-3 py-6">
+      <nav class="nav bg-[#FAF3E1] rounded-lg">
+        <div
+          id="nav-childs"
+          class="flex item-center justify-between gap-2 px-6 py-4"
+        >
+          <h1
+            class="md:text-[23px] text-[20px] lg:text-[25px] font-monospace font-bold uppercase text-[#222222]"
+          >
+            Quote <span class="text-[#FF6D1F]">Nest</span>
+          </h1>
+          <button
+            id="change-theme"
+            class="px-3 md:px-4 font-medium py-2 md:text-[15px] text-[14px] lg:text-base md:py-2.5 bg-[#FF6D1F] rounded-lg cursor-pointer uppercase text-[#FAF3E1]"
+          >
+            Change Theme
+          </button>
+        </div>
+      </nav>
+
+      <div
+        class="absolute top-[50%] px-8 py-6 left-[50%] -translate-x-[50%] -translate-y-[50%] transform custom-shadow rounded-lg alan"
+      >
+        <div class="main-container text-[#FAF3E1]">
+          <h1 class="caption md:text-5xl lg:text-4xl text-3xl text-center">
+            Quote of the Day
+          </h1>
+          <p class="quote-Text mt-10 text-base md:text-lg"></p>
+          <p class="author-name mt-4 md:text-lg text-base"></p>
+          <hr class="line" />
+          <div class="link">
+            <div class="icons flex items-center gap-2 text-2xl mt-3 ">
+              <div class="face hover"><i class="ri-facebook-fill"></i></div>
+              <div class="insta hover"><i class="ri-instagram-line"></i></div>
+              <div class="twi hover"><i class="ri-twitter-line"></i></div>
+            </div>
+            <button
+              id="change-theme"
+              class="px-3 md:px-4 btn mt-4 w-full mx-auto font-medium py-2 md:text-[15px] text-[14px] lg:text-base md:py-2.5 bg-[#FF6D1F] rounded-lg cursor-pointer uppercase text-[#FAF3E1]"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="motivation.js"></script>
+  </body>
 </html>

@@ -20,6 +20,7 @@ const todos_menu_item = document.querySelector("#todos-menu-item");
 let todos = [];
 let complete_todos = [];
 let todo_id = 0;
+
 const todos_bg_color = [
   "3B4953",
   "5A7863",
@@ -98,6 +99,7 @@ const moveToAllTodoFunc = () => {
 };
 
 // render todos
+
 const renderTodos = (AfterRendertodos) => {
   let totolTodos = "";
   let totalDates = ` <li onclick='moveToAllTodoFunc()' class="list-none hover:bg-[#FF6D1F] px-3 md:px-5 py-1.5 md:py-2 hover:text-[#FAF3E1] transition duration-300 rounded-lg font-medium alan cursor-pointer">
@@ -174,7 +176,10 @@ const renderTodos = (AfterRendertodos) => {
     : (totolTodos = `<p class="text-center text-[#FAF3E1] text-lg alan w-full">No Todo Created</p>`);
   show_todos.innerHTML = totolTodos;
   todo_dates.innerHTML = totalDates;
+
 };
+
+
 
 const addNewTodo = () => {
   create_new_todo_btn.addEventListener("click", () => {
@@ -319,3 +324,6 @@ search_todo.addEventListener("keydown", () => {
     renderTodos(todos);
   }
 });
+
+
+
