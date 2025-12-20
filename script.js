@@ -15,7 +15,7 @@ const message = document.querySelector("#error-message");
 const weather = () => {
   const weatherFetch = async (countryName) => {
     const response = await fetch(
-      `    http://api.weatherapi.com/v1/current.json?key=130ce1b155674eb7a1e180803251612&q=${
+      `https://api.weatherapi.com/v1/current.json?key=130ce1b155674eb7a1e180803251612&q=${
         countryName || "bangladesh"
       }`
     );
