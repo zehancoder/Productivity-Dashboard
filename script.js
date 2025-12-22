@@ -20,7 +20,6 @@ const weather = () => {
       }`
     );
     const res = await response.json();
-    console.log(res);
     if (res.error) {
       messageBox.style.transform = "translateX(0%)";
       message.innerHTML = res.error.message + "!";

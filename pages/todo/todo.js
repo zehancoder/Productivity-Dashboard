@@ -107,13 +107,11 @@ const renderTodos = (AfterRendertodos) => {
             </li>`;
   AfterRendertodos.length > 0
     ? AfterRendertodos.map((todo, idx) => {
-        totolTodos += ` <div id=${
-          todo.id
+      totolTodos += ` <div id=${todo.id
         } class="px-4 text-[#FAF3E1] py-3 bg-[#5A7863] rounded-lg">
           <div class="flex justify-between items-center gap-2">
             <div class="flex items-center gap-2">
-              <input onchange='completeFunc(${todo.id})'   value=${
-          todo.complete
+              <input onchange='completeFunc(${todo.id})'   value=${todo.complete
         } type="checkbox" class="h-[14px] todo-checkbox w-[14px]" />
               <h1 id="todo-title" class="text-lg-center alan">
                 ${todo.task_name_value}
@@ -121,17 +119,14 @@ const renderTodos = (AfterRendertodos) => {
             </div>
             <div id="todo-menu"
               class="hover:bg-[#faf3e1d3] relative todo-menu rounded-full px-1.5 py-[1.2px] hover:text-[#222222] cursor-pointer">
-              <div  onclick='todoMenuFunc(${todo.id}, ${
-          "todo_menu_id" + todo.id
+              <div  onclick='todoMenuFunc(${todo.id}, ${"todo_menu_id" + todo.id
         })'><i class="fa-solid fa-ellipsis"></i></div>
-              <div onmouseleave='mouseLeaveFunc(${
-                "todo_menu_id" + todo.id
-              })' id=${"todo_menu_id" + todo.id}
+              <div onmouseleave='mouseLeaveFunc(${"todo_menu_id" + todo.id
+        })' id=${"todo_menu_id" + todo.id}
                 class="absolute hidden md:text-[15px] w-50 text-[15px] top-[105%] z-40 px-4 py-3 text-[#222222] bg-[#FAF3E1] rounded-b-lg">
                 <li
                   id='remove_todo_id${todo.id}'
-                  onclick='removeTodoFunc(${todo.id}, ${
-          "todo_menu_id" + todo.id
+                  onclick='removeTodoFunc(${todo.id}, ${"todo_menu_id" + todo.id
         })'                  class="list-none hover:bg-[#FF6D1F] px-3 md:px-5 flex items-center gap-2 justify-between py-1.5 md:py-2 hover:text-[#FAF3E1] transition duration-300 rounded-lg font-medium alan cursor-pointer">
                   Delete Todo <i class="fa-solid fa-trash-can"></i>
                 </li>
@@ -161,25 +156,22 @@ const renderTodos = (AfterRendertodos) => {
           </div>
         </div> `;
 
-        if (todos.length === 1) {
-          todo_default_date.innerHTML = AfterRendertodos[0].todo_date_value;
-        }
-        if (todos.length === 0) {
-          todo_default_date.innerHTML = "No Todos";
-        }
-        if (todos.length > 0) {
-          totalDates += ` <li onclick='selectTodoDateFunc(${todo.id})' class="list-none hover:bg-[#FF6D1F] px-3 md:px-5 py-1.5 md:py-2 hover:text-[#FAF3E1] transition duration-300 rounded-lg font-medium alan cursor-pointer">
+      if (todos.length === 1) {
+        todo_default_date.innerHTML = AfterRendertodos[0].todo_date_value;
+      }
+      if (todos.length === 0) {
+        todo_default_date.innerHTML = "No Todos";
+      }
+      if (todos.length > 0) {
+        totalDates += ` <li onclick='selectTodoDateFunc(${todo.id})' class="list-none hover:bg-[#FF6D1F] px-3 md:px-5 py-1.5 md:py-2 hover:text-[#FAF3E1] transition duration-300 rounded-lg font-medium alan cursor-pointer">
               ${todo.todo_date_value}
             </li>`;
-        }
-      })
+      }
+    })
     : (totolTodos = `<p class="text-center text-[#FAF3E1] text-lg alan w-full">No Todo Created</p>`);
   show_todos.innerHTML = totolTodos;
   todo_dates.innerHTML = totalDates;
-
 };
-
-
 
 const addNewTodo = () => {
   create_new_todo_btn.addEventListener("click", () => {
@@ -248,7 +240,7 @@ const removeFromCompleteRenderFunc = (complete_todos) => {
   let totolTodos = "";
   complete_todos.length > 0
     ? complete_todos.map((todo) => {
-        totolTodos += ` <div id=${todo.id} class="px-4 text-[#FAF3E1] py-3 bg-[#5A7863] rounded-lg">
+      totolTodos += ` <div id=${todo.id} class="px-4 text-[#FAF3E1] py-3 bg-[#5A7863] rounded-lg">
           <div class="flex justify-between items-center gap-2">
             <div class="flex items-center gap-2">
               <input checked type="checkbox" class="h-[14px] todo-checkbox w-[14px]" />
@@ -272,7 +264,7 @@ const removeFromCompleteRenderFunc = (complete_todos) => {
             <p>12:00 PM</p>
           </div>
         </div> `;
-      })
+    })
     : (totolTodos = `          <p class="text-center text-[#FAF3E1] text-lg alan w-full">No Todo Complete</p>
 `);
   show_complete_todos.innerHTML = totolTodos;
@@ -324,6 +316,3 @@ search_todo.addEventListener("keydown", () => {
     renderTodos(todos);
   }
 });
-
-
-

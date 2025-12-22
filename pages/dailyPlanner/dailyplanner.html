@@ -2,75 +2,171 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="dailyplanner.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="dailyplanner.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 
 <body>
-    <div class="max-w-[1800px] h-screen mx-auto px-3 py-6">
+  <div class="max-w-[1800px] h-screen mx-auto px-3 py-6">
 
-        <div id="overlay" class="overlay"></div>
+    <div id="overlay" class="overlay"></div>
 
-        <!-- navber -->
-        <nav class="nav bg-[#FAF3E1] rounded-lg">
-            <div id="nav-childs" class="flex item-center justify-between gap-2 px-6 py-4">
-                <h1 class="md:text-[23px] text-[20px] lg:text-[25px] font-monospace font-bold uppercase text-[#222222]">
-                    Daily <span class="text-[#FF6D1F]">Planner</span>
-                </h1>
-                <button id="change-theme"
-                    class="px-3 md:px-4 font-medium py-2 md:text-[15px] text-[14px] lg:text-base md:py-2.5 bg-[#FF6D1F] rounded-lg cursor-pointer uppercase text-[#FAF3E1]">
-                    Change Theme
-                </button>
-            </div>
-        </nav>
+    <!-- navber -->
+    <nav class="nav bg-[#FAF3E1] rounded-lg">
+      <div id="nav-childs" class="flex item-center justify-between gap-2 px-6 py-4">
+        <h1 class="md:text-[23px] text-[20px] lg:text-[25px] font-monospace font-bold uppercase text-[#222222]">
+          Daily <span class="text-[#FF6D1F]">Planner</span>
+        </h1>
+        <button id="change-theme"
+          class="px-3 md:px-4 font-medium py-2 md:text-[15px] text-[14px] lg:text-base md:py-2.5 bg-[#FF6D1F] rounded-lg cursor-pointer uppercase text-[#FAF3E1]">
+          Change Theme
+        </button>
+      </div>
+    </nav>
 
 
-        <div id="main" class="custom-shadow  mt-10 overflow-x-hidden rounded-lg">
-            <div class="flex justify-between items-center gap-3 px-8 py-6 bg-[#FF6D1F]  text-[#FAF3E1]">
-                <div class="flex items-center gap-3">
-                    <li id="todo-default-date"
-                        class="list-none text-[16px] md:text-[20px] font-medium alan cursor-pointer">
-                        Today 16/12/2025
-                    </li>
-                    <i class="fa-solid fa-angle-right"></i>
+    <div id="main" class="custom-shadow  mt-10 overflow-x-hidden rounded-lg">
+      <div class="flex justify-between items-center gap-3 px-8 py-6 bg-[#FF6D1F]  text-[#FAF3E1]">
+        <div class="flex items-center gap-3">
+          <li id="daily-planner-date" class="list-none text-[16px] md:text-[20px] font-medium alan cursor-pointer">
+            16/12/2025
+          </li>
+          <i class="fa-solid fa-angle-right"></i>
+        </div>
+        <div class="flex items-center relative gap-4">
+          <button id="new-plan-btn"
+            class="px-3 md:px-4 font-medium flex items-center gap-2 py-2 md:text-[15px] text-[14px] lg:text-base bg-[#FAF3E1] md:py-2.5 text-[#FF6D1F] rounded-lg cursor-pointer uppercase">
+            <i class="fa-solid fa-plus"></i>New Plan
+          </button>
+          <div id="plan-date"
+            class=" absolute top-full right-0 mt-3 bg-[#FAF3E1] text-[#FF6D1F] transition duration-300 rounded-lg ">
+            <input required id="plan-input" type="datetime-local" placeholder="Task Name"
+              class="border outline-none border-[#FAF3E1] px-3 py-1.5 rounded-lg w-full" />
+          </div>
+
+        </div>
+      </div>
+
+      <div class="px-4 py-4">
+        <div class="custom-shadow p-2 flex items-center gap-2 rounded-lg w-fit">
+          <button id="active-plan"
+            class="px-3 md:px-4 font-medium py-2 md:text-[15px] text-[14px] lg:text-base md:py-2.5 border border-[#ff6d1f70] bg-[#FF6D1F] rounded-lg cursor-pointer text-[#FAF3E1]">
+            Active Plan <span id="active-plan-count">(10)</span>
+          </button>
+          <button id="complete-plan"
+            class="px-3 md:px-4 font-medium py-2 md:text-[15px] text-[14px] lg:text-base md:py-2.5 border border-[#ff6d1f80] rounded-lg cursor-pointer text-[#FAF3E1]">
+            Complete Plan <span id="complete-plan-count">(4)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- show plans -->
+      <div class="px-4 py-5">
+
+        <div id="today-plans-show" class="grid gap-3 md:grid-cols-2 grid-cols-1 xl:grid-cols-3">
+          <div id='${plan.id}' class=" custom-shadow alan mt-4 rounded-lg ">
+            <div
+              class="flex sm:text-[19px] text-[17px] lg:text-[22px] text-[#FF6D1F] font-medium  px-3 py-2 items-center rounded-t-lg justify-between bg-[#FAF3E1] gap-2">
+              <h1 class="">Party</h1>
+              <p class="">6:00 - 7:00</p>
+              <p class=" ">22/12/2025</p>
+              <div
+                class="hover:bg-[#222222b9] relative text-xl transition duration-300 todo-menu rounded-full px-[5px] py-[0.5px] hover:text-[#faf3e1d3] cursor-pointer">
+                <i class="fa-solid fa-ellipsis"></i>
+
+                <div
+                  class="absolute md:text-[15px] w-50 text-[15px] top-[105%] z-40 px-4 py-3 text-[#222222] bg-[#FAF3E1] rounded-b-lg">
+                  <li id='remove_todo_id${todo.id}'
+                    class="list-none hover:bg-[#FF6D1F] px-3 md:px-5 flex items-center gap-2 justify-between py-1.5 md:py-2 hover:text-[#FAF3E1] transition duration-300 rounded-lg font-medium alan cursor-pointer">
+                    Delete Todo <i class="fa-solid fa-trash-can"></i>
+                  </li>
+                  <li id='edit_todo_id${todo.id}'
+                    class="list-none hover:bg-[#FF6D1F] px-3 md:px-5 py-1.5 flex items-center justify-between gap-2 md:py-2 hover:text-[#FAF3E1] transition duration-300 rounded-lg font-medium alan cursor-pointer">
+                    Edit Todo <i class="fa-regular fa-pen-to-square"></i>
+                  </li>
+                  <li id="remove-all-todo"
+                    class="list-none hover:bg-[#FF6D1F] px-3 md:px-5 py-1.5 md:py-2 hover:text-[#FAF3E1] transition duration-300 rounded-lg font-medium alan cursor-pointer">
+                    Remove All Todo
+                  </li>
                 </div>
-                <div class="flex items-center gap-4">
-                    <button id="create-new-todo-btn"
-                        class="px-3 md:px-4 font-medium py-2 md:text-[15px] text-[14px] lg:text-base md:py-2.5 bg-[#FAF3E1] rounded-lg cursor-pointer uppercase text-[#FF6D1F]">
-                        Previous Day Plan
-                    </button>
-                    <button id="create-new-todo-btn"
-                        class="px-3 md:px-4 font-medium py-2 md:text-[15px] text-[14px] lg:text-base md:py-2.5 bg-[#FAF3E1] rounded-lg cursor-pointer uppercase text-[#FF6D1F]">
-                        Today Plan
-                    </button>
-                    <button id="create-new-todo-btn"
-                        class="px-3 md:px-4 font-medium py-2 md:text-[15px] text-[14px] lg:text-base md:py-2.5 bg-[#FAF3E1] rounded-lg cursor-pointer uppercase text-[#FF6D1F]">
-                        Next Day Plan
-                        
-                    </button>
-                </div>
+              </div>
             </div>
+            <div class="text-[#FF6D1F] mt-4 lg:text-base sm:text-[15px] text-[14px] px-7 py-4">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+                release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                software like Aldus PageMaker including versions of Lorem Ipsum.
 
-
-            <div class="px-4 py-5">
-                
-                <div class="grid grid-cols-2">
-                    <div>
-                        <p>6:00 - 7:00</p>
-                    </div>
-                </div>
-
+              </p>
             </div>
+          </div>
         </div>
 
-    </div>
+        <div id="complete-plan-show">
+
+        </div>
+
+      </div>
     </div>
 
-    <script src="dailyPlanner.js"></script>
+
+
+    <!-- select date for make a plan -->
+
+
+
+    <div id="new-plan-form"
+      class="fixed hidden top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] w-[400px] bg-[#FF6D1F] z-40 rounded-lg custom-shadow">
+      <form class="px-4 py-4 text-[#FAF3E1]">
+        <div class="flex alan text-lg text-[#FAF3E1] items-center justify-between">
+          <h1 class="text-xl">Add New Plan</h1>
+          <div id="close-plan"
+            class="hover:bg-[#faf3e1d3] todo-menu rounded-full px-2 transition duration-300 py-[1.2px] hover:text-[#222222] cursor-pointer">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+        </div>
+        <p class="text-sm alan font-thin">
+          Lorem ipsum dolor sit amet consectetur adipisicing.
+        </p>
+
+        <div class="mt-5 alan p-4 border rounded-lg border-[#faf3e198]">
+          <div class="">
+            <label for="">Plan Name</label>
+            <input required id="plan-name" type="text" placeholder="Task Name"
+              class="border outline-none border-[#FAF3E1] px-3 py-1.5 rounded-lg w-full" />
+          </div>
+
+          <div class="mt-2">
+            <label for="">Your Plan</label>
+
+            <div class="border outline-none border-[#FAF3E1] px-3 py-1.5 rounded-lg w-full">
+
+              <textarea required name="Description" placeholder="Description" class="w-full outline-none h-full"
+                id="plan-description"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="flex p-2 items-center justify-between mt-5">
+          <button id="cancle-plan"
+            class="px-3 md:px-4 w-[40%] font-medium py-2 md:text-[15px] text-[14px] lg:text-base md:py-2.5 bg-[#FAF3E1] rounded-lg cursor-pointer text-[#FF6D1F]">
+            Cancle
+          </button>
+          <input type="submit" value="Add" id="task-add-btn"
+            class="px-3 md:px-4 font-medium w-[40%] py-2 md:text-[15px] text-[14px] lg:text-base md:py-2.5 bg-[#FAF3E1] rounded-lg cursor-pointer text-[#FF6D1F]">
+          </input>
+        </div>
+    </div>
+
+  </div>
+  </div>
+
+  <script src="dailyPlanner.js"></script>
 </body>
 
 </html>
