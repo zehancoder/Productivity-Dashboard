@@ -30,12 +30,20 @@
 
 
     <div id="main" class="custom-shadow  mt-10 overflow-x-hidden rounded-lg">
-      <div class="flex justify-between items-center gap-3 px-8 py-6 bg-[#FF6D1F]  text-[#FAF3E1]">
-        <div class="flex items-center gap-3">
-          <li id="daily-planner-date" class="list-none text-[16px] md:text-[20px] font-medium alan cursor-pointer">
-            16/12/2025
-          </li>
-          <i class="fa-solid fa-angle-right"></i>
+      <div
+        class="flex justify-between items-center gap-3 px-3 md:px-5 lg:px-8 md:py-5 py-4 lg:py-6 bg-[#FF6D1F]  text-[#FAF3E1]">
+        <div class="md:flex items-center gap-3 w-[60%] md:w-[40%]">
+          <p class="md:w-[20%] alan font-medium text-[#FAF3E1] text-[14x] md:text-[16px]">Search Plan</p>
+          <div
+            class="border w-full border-[#FAF3E1] h-12 overflow-hidden rounded-lg flex items-center justify-between gap-2">
+            <input type="text" id="search-plan" placeholder="Filter by Date/Month/Year"
+              class=" alan font-medium md:text-lg text-[15px] outline-none  px-3 py-1.5 rounded-lg w-full" />
+            <button id="search-plan-btn"
+              class="px-3 md:px-4 font-medium py-3 md:text-[15px] text-[14px] lg:text-base md:py-2.5 bg-[#FAF3E1] h-full cursor-pointer uppercase text-[#FF6D1F] text-2xl">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+
         </div>
         <div class="flex items-center relative gap-4">
           <button id="new-plan-btn"
@@ -55,60 +63,23 @@
         <div class="custom-shadow p-2 flex items-center gap-2 rounded-lg w-fit">
           <button id="active-plan"
             class="px-3 md:px-4 font-medium py-2 md:text-[15px] text-[14px] lg:text-base md:py-2.5 border border-[#ff6d1f70] bg-[#FF6D1F] rounded-lg cursor-pointer text-[#FAF3E1]">
-            Active Plan <span id="active-plan-count">(10)</span>
+            Active Plan <span id="active-plan-count">(0)</span>
           </button>
           <button id="complete-plan"
             class="px-3 md:px-4 font-medium py-2 md:text-[15px] text-[14px] lg:text-base md:py-2.5 border border-[#ff6d1f80] rounded-lg cursor-pointer text-[#FAF3E1]">
-            Complete Plan <span id="complete-plan-count">(4)</span>
+            Complete Plan <span id="complete-plan-count">(0)</span>
           </button>
         </div>
       </div>
 
       <!-- show plans -->
-      <div class="px-4 py-5">
+      <div class="px-4 py-5 mb-12">
 
         <div id="today-plans-show" class="grid gap-3 md:grid-cols-2 grid-cols-1 xl:grid-cols-3">
-          <div id='${plan.id}' class=" custom-shadow alan mt-4 rounded-lg ">
-            <div
-              class="flex sm:text-[19px] text-[17px] lg:text-[22px] text-[#FF6D1F] font-medium  px-3 py-2 items-center rounded-t-lg justify-between bg-[#FAF3E1] gap-2">
-              <h1 class="">Party</h1>
-              <p class="">6:00 - 7:00</p>
-              <p class=" ">22/12/2025</p>
-              <div
-                class="hover:bg-[#222222b9] relative text-xl transition duration-300 todo-menu rounded-full px-[5px] py-[0.5px] hover:text-[#faf3e1d3] cursor-pointer">
-                <i class="fa-solid fa-ellipsis"></i>
 
-                <div
-                  class="absolute md:text-[15px] w-50 text-[15px] top-[105%] z-40 px-4 py-3 text-[#222222] bg-[#FAF3E1] rounded-b-lg">
-                  <li id='remove_todo_id${todo.id}'
-                    class="list-none hover:bg-[#FF6D1F] px-3 md:px-5 flex items-center gap-2 justify-between py-1.5 md:py-2 hover:text-[#FAF3E1] transition duration-300 rounded-lg font-medium alan cursor-pointer">
-                    Delete Todo <i class="fa-solid fa-trash-can"></i>
-                  </li>
-                  <li id='edit_todo_id${todo.id}'
-                    class="list-none hover:bg-[#FF6D1F] px-3 md:px-5 py-1.5 flex items-center justify-between gap-2 md:py-2 hover:text-[#FAF3E1] transition duration-300 rounded-lg font-medium alan cursor-pointer">
-                    Edit Todo <i class="fa-regular fa-pen-to-square"></i>
-                  </li>
-                  <li id="remove-all-todo"
-                    class="list-none hover:bg-[#FF6D1F] px-3 md:px-5 py-1.5 md:py-2 hover:text-[#FAF3E1] transition duration-300 rounded-lg font-medium alan cursor-pointer">
-                    Remove All Todo
-                  </li>
-                </div>
-              </div>
-            </div>
-            <div class="text-[#FF6D1F] mt-4 lg:text-base sm:text-[15px] text-[14px] px-7 py-4">
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
-                release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-                software like Aldus PageMaker including versions of Lorem Ipsum.
-
-              </p>
-            </div>
-          </div>
         </div>
 
-        <div id="complete-plan-show">
+        <div id="complete-plan-show" class="grid gap-3 md:grid-cols-2 grid-cols-1 xl:grid-cols-3">
 
         </div>
 
@@ -122,7 +93,7 @@
 
 
     <div id="new-plan-form"
-      class="fixed hidden top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] w-[400px] bg-[#FF6D1F] z-40 rounded-lg custom-shadow">
+      class="fixed hidden top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] w-[95%] md:w-[400px] bg-[#FF6D1F] z-40 rounded-lg custom-shadow">
       <form class="px-4 py-4 text-[#FAF3E1]">
         <div class="flex alan text-lg text-[#FAF3E1] items-center justify-between">
           <h1 class="text-xl">Add New Plan</h1>

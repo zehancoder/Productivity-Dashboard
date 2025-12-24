@@ -1,11 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Goals</title>
+    <link rel="stylesheet" href="goals.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
+
 <body>
-    <h1>goals</h1>
+
+    <div class="max-w-[1800px] lg:h-[85vh] mx-auto px-3 py-6">
+
+        <div id="overlay" class="overlay"></div>
+
+        <!-- navber -->
+        <nav class="nav bg-[#FAF3E1] rounded-lg">
+            <div id="nav-childs" class="flex item-center justify-between gap-2 px-6 py-4">
+                <h1 class="md:text-[23px] text-[20px] lg:text-[25px] alan font-bold uppercase text-[#222222]">
+                    Set <span class="text-[#FF6D1F]">Goals</span>
+                </h1>
+                <button id="change-theme"
+                    class="px-3 md:px-4 font-medium py-2 md:text-[15px] text-[14px] lg:text-base md:py-2.5 bg-[#FF6D1F] rounded-lg cursor-pointer uppercase text-[#FAF3E1]">
+                    Change Theme
+                </button>
+            </div>
+        </nav>
+
+        <!-- sections -->
+        <div class="custom-shadow h-full relative mt-14 py-8 px-6 rounded-lg">
+            <div
+                class="grid items-center grid-cols-1 lg:grid-cols-2 w-full xl:w-[80%] lg:absolute top-[50%] left-[50%] transform lg:-translate-x-[50%] lg:-translate-y-[50%]">
+                <div class="px-3">
+                    <h1 class="text-5xl font-semibold alan text-[#FAF3E1] text-center uppercase">Fullstack <span class="font-bold text-[#FF6D1F]">Goals</span></h1>
+                    <p class="text-center text-[15px] text-[#FAF3E1] mt-2 alan w-[80%] mx-auto">Goal-driven full-stack developer focused
+                        on frontend, backend, and real-world solutions.</p>
+                    <img class="w-[60%] mx-auto" src="../../images/goalImages/target.png" alt="">
+                </div>
+                <div id="goals-show" class="sm:px-3 lg:mt-0 mt-6">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="goals.js"></script>
 </body>
+
 </html>

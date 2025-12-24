@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>Todo List</title>
   <link rel="stylesheet" href="todo.css" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -32,7 +32,7 @@
     <div class="custom-shadow h-full mt-10 rounded-lg">
       <div class="">
         <div
-          class="bg-[#FF6D1F] w-full rounded-t-lg relative text-[#FAF3E1] py-5 px-5 flex items-center justify-between gap-3">
+          class="bg-[#FF6D1F] w-full rounded-t-lg relative text-[#FAF3E1] py-5 px-5 md:flex items-center justify-between gap-3">
           <div class="flex items-center gap-3">
             <li id="todo-default-date" class="list-none text-[16px] md:text-[20px] font-medium alan cursor-pointer">
               No Todos
@@ -47,22 +47,24 @@
               </li>
             </div>
           </div>
-          <div>
-            <div
-              class="border border-[#FAF3E1] mt-2 h-12 overflow-hidden rounded-lg flex items-center justify-between gap-2">
-              <input id="search-todo" type="text" placeholder="Search by Name"
-                class="text-base md:text-lg w-[90%] outline-none border-none font-normal px-2 md:px-3 text-[#FAF3E1] py-2.5 md:py-3" />
-              <button id="search-todo-btn"
-                class="px-3 md:px-4 font-medium py-3 md:text-[15px] text-[14px] lg:text-base md:py-2.5 bg-[#FAF3E1] h-full cursor-pointer uppercase text-[#FF6D1F] text-2xl">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
+          <div class="flex items-center w-full gap-2 justify-between md:w-[60%]">
+            <div>
+              <div
+                class="border border-[#FAF3E1] mt-2 h-12 overflow-hidden rounded-lg flex items-center justify-between gap-2">
+                <input id="search-todo" type="text" placeholder="Search by Name"
+                  class="text-base md:text-lg w-[90%] outline-none border-none font-normal px-2 md:px-3 text-[#FAF3E1] py-2.5 md:py-3" />
+                <button id="search-todo-btn"
+                  class="px-3 md:px-4 font-medium py-3 md:text-[15px] text-[14px] lg:text-base md:py-2.5 bg-[#FAF3E1] h-full cursor-pointer uppercase text-[#FF6D1F] text-2xl">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </div>
             </div>
+            <button id="create-new-todo-btn"
+              class="px-3 md:px-4 font-medium py-2 md:text-[15px] text-[14px] lg:text-base md:py-2.5 bg-[#FAF3E1] rounded-lg cursor-pointer uppercase text-[#FF6D1F]">
+              <i class="fa-solid fa-plus"></i>
+              New Todo
+            </button>
           </div>
-          <button id="create-new-todo-btn"
-            class="px-3 md:px-4 font-medium py-2 md:text-[15px] text-[14px] lg:text-base md:py-2.5 bg-[#FAF3E1] rounded-lg cursor-pointer uppercase text-[#FF6D1F]">
-            <i class="fa-solid fa-plus"></i>
-            New Todo
-          </button>
         </div>
       </div>
       <!-- geeting active todo and complete todo -->
@@ -92,7 +94,7 @@
 
       <!-- make adding todos  -->
       <div id="todo-form"
-        class="fixed hidden top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] w-[400px] bg-[#FF6D1F] z-40 rounded-lg custom-shadow">
+        class="fixed hidden top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] w-[95%] md:w-[400px] bg-[#FF6D1F] z-40 rounded-lg custom-shadow">
         <form class="px-4 py-4 text-[#FAF3E1]">
           <div class="flex alan text-lg text-[#FAF3E1] items-center justify-between">
             <h1 class="text-xl">Add New Todo</h1>
